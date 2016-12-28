@@ -17,5 +17,37 @@ describe('Car', () => {
       car.setName(carName);
       expect(car.name).to.be.equal(carName);
     });
+
+
+    it('should set name #apply', () => {
+      const car = {};
+      const carName = 'herbie';
+
+      const setName = new Car().setName.apply(car, [carName]);
+
+      expect(car).to.be.an('object');
+      expect(car.name).to.be.equal(carName);
+    });
+
+    it('should set name #bind', () => {
+      const car = {};
+      const carName = 'herbie';
+
+      const setName = new Car().setName.bind(car);
+      setName(carName);
+
+      expect(car).to.be.an('object');
+      expect(car.name).to.be.equal(carName);
+    });
+
+    it('should set name #call', () => {
+      const car = {};
+      const carName = 'herbie';
+
+      const setName = new Car().setName.call(car, carName);
+
+      expect(car).to.be.an('object');
+      expect(car.name).to.be.equal(carName);
+    });
   });
 });
