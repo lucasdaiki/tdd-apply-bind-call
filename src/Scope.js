@@ -16,35 +16,12 @@ module.exports = {
     return x;
   },
   example3: function() {
-    console.log('example3(0) =>', this);    
-    
-    // const e = () => {
-    //   console.log('example3(1)', this);
-    // }
-
-    // function f() {
-    //   console.log('example3(2)', this);
-    // }
-
-    // e();
-    // f();
-
     return this;
   },
   example4: () => {
-    // console.log('example(41) =>', this);    
-    
-    // const e = () => {
-    //   console.log('example4(1)', this);
-    // }
+    return this;
+  },
+  example5: function() {
 
-    // function f() {
-    //   console.log('example4(2)', this);
-    // } 
-
-    // e();
-    // f();
-    
-    // return this;
   }
 }

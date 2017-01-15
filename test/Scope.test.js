@@ -17,16 +17,30 @@ describe('Scope', () => {
   });
 
   describe('#example3', () => {
-    it('WTF', () => {
-      const result = example3.call(this);
-      // console.log('example3 =>', result);
+    it('must be equal #this', () => {
+      const result = example3();
+      expect(result).to.not.be.equal({});
+    });
+
+    describe('#call(this)', () => {
+      it('must be equal to example4', () => {
+        const result3 = example3.call(this);
+        const result4 = example4();
+        expect(result3).to.deep.equal(result4);
+      });
     });
   });
 
   describe('#example4', () => {
-    it('WTF', () => {
+    it('must return {}', () => {
       const result = example4();
-      // console.log('example4 =>',result);
+      expect(result).to.deep.equal({});
+    });
+
+    it('should not change #this', () => {
+      const scope = { a: 1 };
+      const result = example4.call(scope);
+      expect(result).to.deep.equal({});
     });
   });
 });
