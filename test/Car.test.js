@@ -23,7 +23,7 @@ describe('Car', () => {
       const car = {};
       const carName = 'herbie';
 
-      const setName = new Car().setName.apply(car, [carName]);
+      const setName = Car.prototype.setName.apply(car, [carName]);
 
       expect(car).to.be.an('object');
       expect(car.name).to.be.equal(carName);
@@ -33,7 +33,7 @@ describe('Car', () => {
       const car = {};
       const carName = 'herbie';
 
-      const setName = new Car().setName.bind(car);
+      const setName = Car.prototype.setName.bind(car);
       setName(carName);
 
       expect(car).to.be.an('object');
@@ -44,7 +44,7 @@ describe('Car', () => {
       const car = {};
       const carName = 'herbie';
 
-      const setName = new Car().setName.call(car, carName);
+      const setName = Car.prototype.setName.call(car, carName);
 
       expect(car).to.be.an('object');
       expect(car.name).to.be.equal(carName);
