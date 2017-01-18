@@ -17,11 +17,6 @@ describe('Scope', () => {
   });
 
   describe('#example3', () => {
-    it('must be equal #this', () => {
-      const result = example3();
-      expect(result).to.not.be.equal({});
-    });
-
     describe('#call(this)', () => {
       it('must be equal to example4', () => {
         const result3 = example3.call(this);
@@ -40,6 +35,12 @@ describe('Scope', () => {
     it('should not change #this', () => {
       const scope = { a: 1 };
       const result = example4.call(scope);
+      expect(result).to.deep.equal({});
+    });
+
+    it('should not change #this', () => {
+      const scope = { a: 1 };
+      const result = example4.bind(scope).call();
       expect(result).to.deep.equal({});
     });
   });
