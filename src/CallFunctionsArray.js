@@ -1,10 +1,10 @@
 const functions = [ () => console.log('fn1'), () => console.log('fn2'),  () => console.log('fn3') ];
 
 const run = {
-  simple: () => functions.forEach(Function.prototype.call, Function.prototype.call),
-  call: () => Array.prototype.forEach.call(functions, Function.prototype.call, Function.prototype.call),
-  apply: () => Array.prototype.forEach.apply(functions, [Function.prototype.call, Function.prototype.call]),
-  bind: () => Array.prototype.forEach.bind(functions, Function.prototype.call, Function.prototype.call)()
+  simple: () => functions.forEach(Function.call, Function.call),
+  call: () => Array.prototype.forEach.call(functions, Function.call, Function.call),
+  apply: () => Array.prototype.forEach.apply(functions, [Function.call, Function.call]),
+  bind: () => functions.forEach(Function.call.bind(Function.call))
 };
 
 console.log('\nsimple');
