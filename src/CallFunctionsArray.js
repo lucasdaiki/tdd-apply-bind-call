@@ -1,4 +1,4 @@
-const functions = [ () => console.log('fn1'), () => console.log('fn3'),  () => console.log('fn3') ];
+const functions = [ () => console.log('fn1'), () => console.log('fn2'),  () => console.log('fn3') ];
 
 const run = {
   simple: () => functions.forEach(Function.prototype.call, Function.prototype.call),
@@ -14,9 +14,9 @@ console.log('\ncall');
 run.call();
 
 console.log('\napply');
-run.simple();
+run.apply();
 
 console.log('\nbind');
-run.simple();
+run.bind();
 
 module.exports = run;
